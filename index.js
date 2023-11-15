@@ -2,6 +2,20 @@
 var express = require ('express')
 var ejs = require('ejs')
 var bodyParser= require ('body-parser')
+const db = mysql.createConnection ({
+    host: 'localhost',
+    user: 'alari001',
+    password: '123',
+    database: 'myBookshop'
+});
+// Connect to the database
+db.connect((err) => {
+    if (err) {
+        throw err;
+    }
+    console.log('Connected to database');
+});
+global.db = db;
 
 // Create the express application object
 const app = express()
